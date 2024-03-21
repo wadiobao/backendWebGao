@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rice Shop Admin Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 class="text-center my-4">Rice Shop Admin Panel</h1>
+  </header>
+  <main class="container">
+    <section id="product-management">
+      <h2>Product Management</h2>
+      <!-- Form to add new product -->
+      <!-- Form to add new product -->
+<form id="add-product-form" class="mb-4">
+    <div class="form-group">
+      <label for="product-name">Product Name:</label>
+      <input type="text" id="product-name" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="product-price">Price:</label>
+      <input type="number" id="product-price" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="product-quantity">Quantity:</label>
+      <input type="number" id="product-quantity" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+  </form>
+  
+      <!-- Table to display existing products -->
+      <h3>Product Inventory</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity Left</th>
+          </tr>
+        </thead>
+        <tbody id="product-list">
+          <!-- Product rows will be dynamically added here -->
+          <td>gạo thái</td>
+          <td>100000Đ</td>
+          <td>100</td>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="traffic">
+      <h2>Traffic Per Day</h2>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Traffic Statistics</h5>
+          <p class="card-text">Display traffic statistics here...</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="income">
+      <h2>Income Per Day</h2>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Income Statistics</h5>
+          <p class="card-text">Display income statistics here...</p>
+        </div>
+      </div>
+    </section>
+    <button id="logout-btn" class="btn btn-danger mt-3" onclick="window.location.replace('./index.html')">Logout</button>
+  </main>
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
