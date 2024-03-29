@@ -1,398 +1,414 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trang Backend Quản Trị</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <style>
-    body {
-      background-color: #f8f9fa;
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      color: #333; /* Màu chữ chính */
-    }
-    .navbar {
-  background-color: #343a40;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-}
-    .navbar-brand {
-      color: #ffffff;
-      font-weight: bold;
-      font-size: 24px;
-    }
-    .navbar-nav .nav-link {
-      color: #ffffff;
-      font-size: 18px;
-    }
-    .card {
-      border: none;
-      border-radius: 15px;
-      box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
-    }
-    .card-header {
-      background-color: #343a40;
-      color: #ffffff;
-      border: none;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-    }
-    .btn {
-      border-radius: 20px;
-      font-size: 16px;
-      font-weight: bold;
-      text-transform: uppercase; /* Chữ in hoa */
-    }
-    .btn-primary {
-      background-color: #007bff;
-      border-color: #007bff;
-    }
-    .btn-primary:hover {
-      background-color: #0056b3;
-      border-color: #0056b3;
-    }
-    .btn-danger {
-      background-color: #dc3545;
-      border-color: #dc3545;
-    }
-    .btn-danger:hover {
-      background-color: #bd2130;
-      border-color: #bd2130;
-    }
-    .table thead th {
-      background-color: #343a40;
-      color: #ffffff;
-      border: none;
-    }
-    .table tbody tr:hover {
-      background-color: #f2f2f2;
-    }
-    .table-striped tbody tr:nth-of-type(odd) {
-      background-color: rgba(0,0,0,.05);
-    }
-    .table-analysis thead th {
-      background-color: #007bff;
-      color: #ffffff;
-      border: none;
-    }
-    .table-analysis tbody tr:hover {
-      background-color: #cce5ff;
-    }
-    .table-analysis tbody tr:nth-of-type(odd) {
-      background-color: rgba(0,123,255,.1);
-    }
-    /* New styles for SEO */
-    h1, h2, h3, h4, h5, h6 {
-      color: #00000; /* Màu chữ cho tiêu đề */
-    }
-    p {
-      color: #666; /* Màu chữ cho đoạn văn */
-    }
-	  </style>
+  <link rel="stylesheet" href="./style.css">
+
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="container">
-    <a class="navbar-brand" href="#">Cửa Hàng Gạo</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Sản Phẩm</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Đơn Hàng</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Khách Hàng</a>
-        </li>
-        <!-- Thêm các mục menu khác tùy theo yêu cầu của bạn -->
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Cửa Hàng Gạo</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#DSSP">Sản Phẩm</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Đơn Hàng</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#DSKH">Khách Hàng</a>
+          </li>
+          <!-- Thêm các mục menu khác tùy theo yêu cầu của bạn -->
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
 
-<div class="container-fluid mt-5">
-  <div class="row">
-    <div class="container mt-5">
-  <div class="row">
-    <div class="col-md-4 mb-4">
-      <div class="card bg-primary text-white">
-        <div class="card-header">
-          <h5 class="card-title mb-0">Số Lượng Sản Phẩm</h5>
-        </div>
-        <div class="card-body">
-          <h2 class="card-text mb-0"><i class="fas fa-boxes"></i> 50</h2>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-primary btn-block">Xem Chi Tiết</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card bg-success text-white">
-        <div class="card-header">
-          <h5 class="card-title mb-0">Tổng Doanh Thu</h5>
-        </div>
-        <div class="card-body">
-          <h2 class="card-text mb-0"><i class="fas fa-dollar-sign"></i> $10,000</h2>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-success btn-block">Xem Chi Tiết</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card bg-danger text-white">
-        <div class="card-header">
-          <h5 class="card-title mb-0">Số Đơn Hàng</h5>
-        </div>
-        <div class="card-body">
-          <h2 class="card-text mb-0"><i class="fas fa-shopping-cart"></i> 100</h2>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-danger btn-block">Xem Chi Tiết</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header bg-dark text-white">
-          <h5 class="mb-0">Báo Cáo Sản Phẩm Bán Chạy</h5>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Tên Sản Phẩm</th>
-                  <th>Số Lượng Bán</th>
-                  <th>Tồn Kho</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Gạo Lứt</td>
-                  <td>150</td>
-                  <td>300</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Gạo Thơm</td>
-                  <td>120</td>
-                  <td>250</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Gạo Nếp</td>
-                  <td>100</td>
-                  <td>200</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Gạo Hữu Cơ</td>
-                  <td>90</td>
-                  <td>180</td>
-                </tr>
-                <tr>
-                  <td>5</td>
-                  <td>Gạo Lào</td>
-                  <td>80</td>
-                  <td>150</td>
-                </tr>
-                <!-- Thêm dữ liệu cho các sản phẩm khác tùy theo yêu cầu của bạn -->
-              </tbody>
-            </table>
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card bg-primary text-white">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Số Lượng Sản Phẩm</h5>
+              </div>
+              <div class="card-body">
+                <h2 class="card-text mb-0"><i class="fas fa-boxes"></i> 50</h2>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-primary btn-block">Xem Chi Tiết</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card bg-success text-white">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Tổng Doanh Thu</h5>
+              </div>
+              <div class="card-body">
+                <h2 class="card-text mb-0"><i class="fas fa-dollar-sign"></i> $10,000</h2>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-success btn-block">Xem Chi Tiết</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card bg-danger text-white">
+              <div class="card-header">
+                <h5 class="card-title mb-0">Số Đơn Hàng</h5>
+              </div>
+              <div class="card-body">
+                <h2 class="card-text mb-0"><i class="fas fa-shopping-cart"></i> 100</h2>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn btn-danger btn-block">Xem Chi Tiết</a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-4">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header bg-secondary text-white">
-          <h5 class="mb-0">Bảng Phân Tích Mua Hàng</h5>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-analysis table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Tiêu Chuẩn</th>
-                  <th>Giá Trị</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Doanh Thu Tổng Cộng</td>
-                  <td>$10,000</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Sản Phẩm Bán Chạy Nhất</td>
-                  <td>Gạo Lứt</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Số Lượng Đơn Hàng</td>
-                  <td>100</td>
-                </tr>
-                <!-- Thêm dữ liệu cho các tiêu chuẩn phân tích khác tùy theo yêu cầu của bạn -->
-              </tbody>
-            </table>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">Báo Cáo Sản Phẩm Bán Chạy</h5>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Số Lượng Bán</th>
+                        <th>Tồn Kho</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Gạo Lứt</td>
+                        <td>150</td>
+                        <td>300</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Gạo Thơm</td>
+                        <td>120</td>
+                        <td>250</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Gạo Nếp</td>
+                        <td>100</td>
+                        <td>200</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>Gạo Hữu Cơ</td>
+                        <td>90</td>
+                        <td>180</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>Gạo Lào</td>
+                        <td>80</td>
+                        <td>150</td>
+                      </tr>
+                      <!-- Thêm dữ liệu cho các sản phẩm khác tùy theo yêu cầu của bạn -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
-          <!-- Thêm biểu đồ -->
-          <canvas id="myChart" width="400" height="200"></canvas>
         </div>
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header bg-secondary text-white">
+                <h5 class="mb-0">Bảng Phân Tích Mua Hàng</h5>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-analysis table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Tiêu Chuẩn</th>
+                        <th>Giá Trị</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Doanh Thu Tổng Cộng</td>
+                        <td>$10,000</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Sản Phẩm Bán Chạy Nhất</td>
+                        <td>Gạo Lứt</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Số Lượng Đơn Hàng</td>
+                        <td>100</td>
+                      </tr>
+                      <!-- Thêm dữ liệu cho các tiêu chuẩn phân tích khác tùy theo yêu cầu của bạn -->
+                    </tbody>
+                  </table>
+                </div>
+                <!-- Thêm biểu đồ -->
+                <canvas id="myChart" width="400" height="200"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4" id="DSSP">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">Danh Sách Tất Cả Sản Phẩm</h5>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Mã Sản Phẩm</th>
+                        <th>Nhà Cung Cấp</th>
+                        <th>Ngày Nhập</th>
+                        <th>Tồn Kho</th>
+                        <th>Giá Bán Lẻ</th>
+                        <th>Giá Bán Sỉ</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Gạo Lứt</td>
+                        <td>SP001</td>
+                        <td>Nhà Cung Cấp A</td>
+                        <td>2024-03-25</td>
+                        <td>150</td>
+                        <td>$5.99</td>
+                        <td>$4.99</td>
+                      </tr>
+                      <!-- Thêm dữ liệu cho cácsản phẩm khác tùy theo yêu cầu của bạn -->
+                      <tr>
+                        <td>2</td>
+                        <td>Gạo Thơm</td>
+                        <td>SP002</td>
+                        <td>Nhà Cung Cấp B</td>
+                        <td>2024-03-25</td>
+                        <td>120</td>
+                        <td>$6.99</td>
+                        <td>$5.99</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Gạo Nếp</td>
+                        <td>SP003</td>
+                        <td>Nhà Cung Cấp C</td>
+                        <td>2024-03-25</td>
+                        <td>100</td>
+                        <td>$7.99</td>
+                        <td>$6.99</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>Gạo Hữu Cơ</td>
+                        <td>SP004</td>
+                        <td>Nhà Cung Cấp A</td>
+                        <td>2024-03-25</td>
+                        <td>90</td>
+                        <td>$8.99</td>
+                        <td>$7.99</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>Gạo Lào</td>
+                        <td>SP005</td>
+                        <td>Nhà Cung Cấp B</td>
+                        <td>2024-03-25</td>
+                        <td>80</td>
+                        <td>$9.99</td>
+                        <td>$8.99</td>
+                      </tr>
+                      <!-- Thêm dữ liệu cho các sản phẩm khác tùy theo yêu cầu của bạn -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4" id="DSKH">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header bg-dark text-white">
+                <h5 class="mb-0">Danh sách khách hàng</h5>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Tên Khách hàng</th>
+                        <th>Mã khách hàng</th>
+                        <th>Email</th>
+                        <th>Ngày mua</th>
+                        <th>Số lượng</th>
+                        <th>Loại gạo mua</th>
+                        <th>Tổng tiền</th>
+                        <th>Số điện thoại</th>
+                        <th>Địa chỉ</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Trần Văn B</td>
+                        <td>KH001</td>
+                        <td>email1@gmail.com</td>
+                        <td>2024-05-25</td>
+                        <td>50</td>
+                        <td>Gạo Lứt</td>
+                        <td>$250</td>
+                        <td>0999999999</td>
+                        <td>Hà Nội</td>
+                      </tr>
+                      <!-- Thêm dữ liệu cho cácsản phẩm khác tùy theo yêu cầu của bạn -->
+                      <tr>
+                        <td>2</td>
+                        <td>Trần Văn C</td>
+                        <td>KH002</td>
+                        <td>email11@gmail.com</td>
+                        <td>2024-04-25</td>
+                        <td>120</td>
+                        <td>Gạo Thơm</td>
+                        <td>$720</td>
+                        <td>0999999999</td>
+                        <td>Hà Nội</td>
+
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Trần Văn D</td>
+                        <td>KH003</td>
+                        <td>email111@gmail.com</td>
+                        <td>2024-01-25</td>
+                        <td>100</td>
+                        <td>Gạo Nếp</td>
+                        <td>$700</td>
+                        <td>0999999999</td>
+                        <td>Hà Nội</td>
+
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>Trần Văn E</td>
+                        <td>KH004</td>
+                        <td>email121@gmail.com</td>
+                        <td>2024-06-25</td>
+                        <td>90</td>
+                        <td>Gạo Hữu Cơ</td>
+                        <td>$720</td>
+                        <td>0999999999</td>
+                        <td>Hà Nội</td>
+
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>Trần Văn A</td>
+                        <td>KH005</td>
+                        <td>email31@gmail.com</td>
+                        <td>2024-03-25</td>
+                        <td>80</td>
+                        <td>Gạo Lào</td>
+                        <td>$720</td>
+                        <td>0999999999</td>
+                        <td>Hà Nội</td>
+
+                      </tr>
+                      <!-- Thêm dữ liệu cho các sản phẩm khác tùy theo yêu cầu của bạn -->
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
+      </main>
     </div>
   </div>
-
-<div class="row mt-4">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header bg-dark text-white">
-          <h5 class="mb-0">Danh Sách Tất Cả Sản Phẩm</h5>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Tên Sản Phẩm</th>
-                  <th>Mã Sản Phẩm</th>
-                  <th>Nhà Cung Cấp</th>
-                  <th>Ngày Nhập</th>
-                  <th>Tồn Kho</th>
-                  <th>Giá Bán Lẻ</th>
-                  <th>Giá Bán Sỉ</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Gạo Lứt</td>
-                  <td>SP001</td>
-                  <td>Nhà Cung Cấp A</td>
-                  <td>2024-03-25</td>
-                  <td>150</td>
-                  <td>$5.99</td>
-                  <td>$4.99</td>
-                </tr>
-                <!-- Thêm dữ liệu cho cácsản phẩm khác tùy theo yêu cầu của bạn -->
-<tr>
-<td>2</td>
-<td>Gạo Thơm</td>
-<td>SP002</td>
-<td>Nhà Cung Cấp B</td>
-<td>2024-03-25</td>
-<td>120</td>
-<td>$6.99</td>
-<td>$5.99</td>
-</tr>
-<tr>
-<td>3</td>
-<td>Gạo Nếp</td>
-<td>SP003</td>
-<td>Nhà Cung Cấp C</td>
-<td>2024-03-25</td>
-<td>100</td>
-<td>$7.99</td>
-<td>$6.99</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Gạo Hữu Cơ</td>
-<td>SP004</td>
-<td>Nhà Cung Cấp A</td>
-<td>2024-03-25</td>
-<td>90</td>
-<td>$8.99</td>
-<td>$7.99</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Gạo Lào</td>
-<td>SP005</td>
-<td>Nhà Cung Cấp B</td>
-<td>2024-03-25</td>
-<td>80</td>
-<td>$9.99</td>
-<td>$8.99</td>
-</tr>
-<!-- Thêm dữ liệu cho các sản phẩm khác tùy theo yêu cầu của bạn -->
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-
-  </div>
-</div>
-</main>
-  </div>
-</div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Gạo Lứt', 'Gạo Thơm', 'Gạo Nếp', 'Gạo Hữu Cơ', 'Gạo Lào'],
-      datasets: [{
-        label: 'Số Lượng Bán',
-        data: [150, 120, 100, 90, 80],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true
-          }
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Gạo Lứt', 'Gạo Thơm', 'Gạo Nếp', 'Gạo Hữu Cơ', 'Gạo Lào'],
+        datasets: [{
+          label: 'Số Lượng Bán',
+          data: [150, 120, 100, 90, 80],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)'
+          ],
+          borderWidth: 1
         }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
       }
-    }
-  });
-</script>
+    });
+  </script>
 </body>
+
 </html>
